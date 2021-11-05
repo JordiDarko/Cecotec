@@ -7,7 +7,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 import json
 
-
+# Endpoints sin parámetros
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def product_list(request):
@@ -25,7 +25,7 @@ def order_list(request):
         serializer = OrderSerializer(orders, many=True)
         return Response(data=serializer.data)
 
-
+# Endpoint con parámetro por url
 @api_view(['GET'])
 @permission_classes([IsAdminUser])
 def order(request, id):
@@ -34,11 +34,11 @@ def order(request, id):
             order = Order.objects.get(id=id)
         except:
             return Response(status=status.HTTP_400_BAD_REQUEST)
-            
+
         serializer = OrderSerializer(order, many=False)
         return Response(data=serializer.data)
 
-
+# Endpoints con parámetros en el body de la request
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_order(request):
