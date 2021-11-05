@@ -68,3 +68,10 @@ En caso de enviar un id o parámetro incorrecto el servicio devuelve un HTTP_400
 }
 El servicio devuelve un JSON con el pedido modificado.
 En caso de enviar un id o parámetro incorrecto el servicio devuelve un HTTP_400_BAD_REQUEST.
+  
+
+  ## TEST
+  
+  El proyecto solo contiene dos tests en el archivo test.py. Para ejecutarlos:
+  ` python manage.py test app1 `
+  
